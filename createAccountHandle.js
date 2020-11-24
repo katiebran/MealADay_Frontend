@@ -17,7 +17,7 @@ async function handleLogIn() {
         localStorage.setItem('jwt', token);
         console.log(token);
         localStorage.setItem('name', username);
-        window.location.replace('profile.html'); 
+        window.location.replace('quiz.html'); 
         return true;
     } catch (error) {
         alert(error);
