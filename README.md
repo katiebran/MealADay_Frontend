@@ -16,7 +16,20 @@ User's work their way through a quiz to determine what mood they are in. Using a
 ```
 
 #### [Edamam Api](https://developer.edamam.com/)
-The [Edamam Api](https://developer.edamam.com/) is a public API. This code uses the specific Recipe Search API Documentation which allows for get requests to be made from a variety of different parameters. Using the information from thee quiz, this code uses a get request based of
+The [Edamam Api](https://developer.edamam.com/) is a public API. This code uses the specific Recipe Search API Documentation which allows for get requests to be made from a variety of different parameters. Using the information from thee quiz, this code uses a get request based off of which ever meal option (seen in the code snippet above) has the most points. These key words above provide information for the cuisine and dish type for the get request. 
+```javascript 
+      //where foodList corresponds to the list of options that were chosed based off mood
+
+for(let i = 0; i < foodList.length; i++){
+      const result = await axios({
+          method: 'get',
+          url: 'https://api.edamam.com/search?app_id=a827a21b&app_key=ec74908f00f3210c21a1a90c37518b97&q='+foodList[i],
+        });
+  
+      foodObjArr[i] = result.data;
+      
+    }
+```
 #### Recipe Library
 #### Login
 
