@@ -115,7 +115,7 @@ function handleEditButton(event) {
 }
 
 
-function handleEditFormSubmit(event) {
+async function handleEditFormSubmit(event) {
 
     event.preventDefault();
     console.log('submit pressed');
