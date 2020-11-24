@@ -20,7 +20,7 @@ async function handleLogIn() {
         window.location.replace('quiz.html'); 
         return true;
     } catch (error) {
-        alert(error);
+        alert(error + ": Account not found");
         return false;
     }
 }
