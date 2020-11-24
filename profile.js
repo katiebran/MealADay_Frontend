@@ -34,6 +34,7 @@ function renderRecipeCard(recipe) {
                             <div class="tags">
                             <button id="${recipe.label.split(" ").join("")}" class=" button deleteCard m-1 is-small is-danger">Delete <i class="ml-1 far fa-trash-alt"></i></button>
                             <button id="${recipe.label.split(" ").join("")}"  class="button edit is-info m-1 is-small">Edit <i class="ml-1 fas fa-edit"></i></button>
+                            <button id="${recipe.id}" class ="button like ">Like<i class="fas fa-heart"></i></button>
                             </div>
                             
                             
@@ -181,6 +182,34 @@ async function handleDeleteButton(event) {
 
 }
 
+async function handleLike(event) {
+    event.preventDefault();
+    //insert axios call
+    console.log('like')
+    console.log(event.target.id);
+    $('#' + event.target.id).replaceWith(`<button id="${recipe.id}" class ="button">Like<i class="far fa-heart"></i></button>`).remove();
+
+    let token = localStorage.getItem('jwt');
+    let curr = event.target.id;
+    let recipe = dataArr.find(r => r.label = curr)
+    try {
+        const res = await axios({
+            method: 'post',
+            url: "https://mealaday.herokuapp.com/user/recipes/" + recipe.label,
+            headers: {Authorization: `Bearer ${token}`},
+            "type": "merge",
+            'data': {
+                'data': {
+                  "isLiked": "true"
+                }
+            }
+        });
+      } catch (error) {
+          alert(error);
+      }
+
+}
+
 async function getRecipes() {
     
     let token = localStorage.getItem('jwt');
@@ -217,6 +246,7 @@ $(function () {
     // });
     $(document).on('click', '.deleteCard', handleDeleteButton);
     $(document).on('click', '.edit', handleEditButton);
+    $(document).on('click', '.like', handleLike);
 
 });
 
