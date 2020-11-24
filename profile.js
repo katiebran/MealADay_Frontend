@@ -249,7 +249,7 @@ async function getRecipes() {
 
 $(function () {
     getRecipes();
-    getProfileInfo()
+    renderProfileCard()
     // $(document).on('click', '.edit', function () {
     //     console.log('edit')
     // });
