@@ -7,7 +7,7 @@ async function handleLogIn() {
     try {
         const res = await axios({
             method: "post",
-            url: 'https://mealaday.herokuapp.com/login',
+            url: 'https://mealaday.herokuapp.com/account/login',
             data: {
                 name: username,
                 pass: password,
