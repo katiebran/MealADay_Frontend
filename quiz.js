@@ -261,7 +261,7 @@ export async function createRecipe(){
                               </div>
                               <footer class="card-footer">
                                   <p class="card-footer-item">
-                                  <a href="profile.html"><button class="button profileButton" id="profileButton">Go to My Recipe</button></a>
+                                  <button class="button profileButton" id="profileButton">Go to My Recipe</button>
                                   </p>
                               </footer>
                           </div>
@@ -326,6 +326,7 @@ async function addRecipe(event){
 // } 
 
 async function addUser(){
+  console.log("inside addUser");
   let name = localStorage.getItem('name');
   let id = finalRecipe.recipe.label.split(" ").join("");
   console.log(name);
@@ -356,6 +357,7 @@ async function addUser(){
         }
     });
     console.log(res);
+    window.location.replace('profile.html');
   } catch (error) {
       alert(error);
   }

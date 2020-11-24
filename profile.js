@@ -195,6 +195,7 @@ async function getRecipes() {
         // console.log(recipe.data.result);
         dataArr = Object.values(recipe.data.result);
         console.log(dataArr);
+        console.log(dataArr.length);
 
         for (let i = 0; i < dataArr.length; i++) {
             // dataArr[i].date = getDate();
