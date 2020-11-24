@@ -13,54 +13,71 @@
     <title>Meal-A-Day: Home</title>
 </head>
 <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand"> 
-          <a class="navbar-item logo"  href="#home_banner"></a>
-          <div class="navbar-burger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="navbar-menu" id="navMenu">
-          <div class="navbar-start">
-            <a href="#home_banner" class="navbar-item brackets">Home</a>
-            <a href="#about_banner" class="navbar-item brackets">About</a>
+  <nav class="navbar is-transparent is-fixed-top">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="./index.html">
+        <img src="images/Logo.png" alt="Meal a day logo" width="112" height="28">
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
-            <!-- if someone is logged in -->
-            <!-- Can't take quiz or view playlist until user is signed in-->
-            <script>
-              //console.log(localStorage.getItem('token'));
-              if(localStorage.getItem('jwt') != null){
-                document.write(`<a href="./quiz.html" class="navbar-item brackets">Take Quiz</a>`);
-              }
-            </script>
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="./index.html">
+          Home
+        </a>
+
+        <a class="navbar-item" href="./index.html#about_banner">
+          About
+        </a>
+        <a class="navbar-item" href="./quiz.html">
+          Take Quiz
+        </a>
+        <a class="navbar-item" href="./profile.html">
+          My Profile
+        </a>
+
+
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <!-- if logged in -->
+            <p class="control">
+              <a class="bd-tw-button button" target="_blank"
+                href="./logOut.html">
+                <span>
+                  Log Out
+                </span>
+              </a>
+            </p>
+
+            <!-- if logged out -->
+            <!-- <p class="control">
+              <a class="bd-tw-button button" target="_blank"
+                href="./logOut.html">
+                <span>
+                  Login
+                </span>
+              </a>
+            </p> -->
+            <!-- <p class="control">
+              <a class="button is-primary"
+                href="./signUp.html">
+               
+                <span>Sign Up</span>
+              </a>
+            </p> -->
           </div>
         </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <script>
-                  if(localStorage.getItem('jwt') == null){
-                    document.write(`<a class="button is-dark " href="./signUp.html">
-                                      <strong>Sign up</strong>
-                                    </a>
-                                    <a class="button is-light" href="./logIn.html">
-                                      <strong>Log in</strong>
-                                    </a>`);
-                  }
-                </script>
-                <script>
-                    if(localStorage.getItem('jwt') != null){
-                      document.write(`<a class="button is-dark " href="./logOut.html">
-                                        <strong>Log Out</strong>
-                                      </a>`);
-                    }
-                </script>
-              </div>
-            </div>
-          </div>
-      </nav>
+      </div>
+    </div>
+  </nav> 
 
     <section class="hero is-fullheight banner" id="home_banner">
         <div class="hero-body is_flex_wrap margin-auto center">

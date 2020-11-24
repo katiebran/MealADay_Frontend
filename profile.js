@@ -48,10 +48,10 @@ function renderProfileCard(){
 
     let profCard = ` <div class="container m-4">
 
-    <div class="card m-2">
+    <div class="card m-2 has-text-center">
       <div class="profile-pic">
       </div>
-      <div class="card-content">
+      <div class="card-content is-center">
         <p class="title is-4">${localStorage.getItem('first')} ${localStorage.getItem('last')}</p>
         <p class="subtitle is-6">${localStorage.getItem('name')}</p>
       </div>
