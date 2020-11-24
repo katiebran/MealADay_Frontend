@@ -189,9 +189,9 @@ async function getRecipes() {
             method: 'get',
             url: "https://mealaday.herokuapp.com/user/recipes",
             headers: { Authorization: `Bearer ${token}` },
-            //"type": "merge",
+            "type": "merge",
         });
-        // console.log(recipe.data);
+        console.log(recipe.data);
         // console.log(recipe.data.result);
         dataArr = Object.values(recipe.data.result);
         console.log(dataArr);
