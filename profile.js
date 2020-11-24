@@ -206,7 +206,7 @@ async function getProfileInfo() {
     try {
         const prof = await axios({
             method: 'get',
-            url: "https://mealaday.herokuapp.com/account",
+            url: "https://mealaday.herokuapp.com/account/create",
             headers: { Authorization: `Bearer ${token}` },
             "type": "merge",
         }); 
