@@ -18,35 +18,68 @@
 </head>
 
 <body>
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-transparent is-fixed-top">
         <div class="navbar-brand">
-            <a class="navbar-item logo" href="./index.html"></a>
-            <div class="navbar-burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="images/Logo.png" alt="Meal a day logo" width="112" height="28">
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-        <div class="navbar-menu" id="navMenu">
-            <div class="navbar-start">
-                <a href="./index.html" class="navbar-item brackets">Home</a>
-                <a href="./index.html" class="navbar-item brackets">About</a>
-                <a href="./quiz.html" class="navbar-item brackets">Take Quiz</a>
+    
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="./index.html">
+              Home
+            </a>
+    
+            <a class="navbar-item" href="./index.html#about_banner">
+              About
+            </a>
+            <a class="navbar-item" href="./quiz.html">
+              Take Quiz
+            
+    
+    
+          </div>
+    
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <!-- if logged in -->
+                <p class="control">
+                  <a class="bd-tw-button button" target="_blank"
+                    href="./logOut.html">
+                    <span>
+                      Log Out
+                    </span>
+                  </a>
+                </p>
+    
+                <!-- if logged out -->
+                <!-- <p class="control">
+                  <a class="bd-tw-button button" target="_blank"
+                    href="./logOut.html">
+                    <span>
+                      Login
+                    </span>
+                  </a>
+                </p> -->
+                <!-- <p class="control">
+                  <a class="button is-primary"
+                    href="./signUp.html">
+                   
+                    <span>Sign Up</span>
+                  </a>
+                </p> -->
+              </div>
             </div>
+          </div>
         </div>
-        <div class="navbar-end"></div>
-        <script>
-            if(localStorage.getItem('jwt') != null){
-              document.write(`<a class="button is-dark " href="./logOut.html">
-                                <strong>Log Out</strong>
-                              </a>`);
-            }
-        </script>
-        <div class="navbar-item">
-            <div class="buttons">
-            </div>
-        </div>
-    </nav>
+      </nav>
     <div class="banner has-background-light">
         <h2 class="is-family-secondary m-5 has-text-centered">My Profile</h2>
         <div class="section">
@@ -64,6 +97,18 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+    
+          // Check for click events on the navbar burger icon
+          $(".navbar-burger").click(function () {
+    
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            $(".navbar-burger").toggleClass("is-active");
+            $(".navbar-menu").toggleClass("is-active");
+    
+          });
+        });</script>
     <script src="createAccountHandle.js"></script>
     <script src="testdata.js"></script>
     <script src="quiz.js" type="module"></script>
