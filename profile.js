@@ -36,7 +36,7 @@ function renderRecipeCard(recipe) {
                             <button id="${recipe.label.split(" ").join("")}"  class="button edit is-info m-1 is-small">Edit <i class="ml-1 fas fa-edit"></i></button>
                             </div>
                             
-                            
+    
                         </div>
              `;
 
@@ -44,9 +44,29 @@ function renderRecipeCard(recipe) {
 
 }
 
+function renderProfileCard(prof){
+    console.log(prof)
+    let profCard = ` <div class="container m-4">
+
+    <div class="card m-2">
+      <div class="profile-pic">
+      </div>
+      <div class="card-content">
+        <p class="title is-4">${prof.first} ${prof.last}</p>
+        <p class="subtitle is-6">${prof.name}</p>
+      </div>
+      <div class="content p-4">
+        <p><strong>Favorite Food: </strong>${prof.favFood} </p>
+        <button class="button yellow_button">Edit Profile</button>
+      </div>
+    </div>
+  </div>`
+
+  $('.proofRoot').append(profCard);
+}
+
 function handleEditButton(event) {
     event.preventDefault();
-    
     console.log('edit')
     console.log(event.target.id)
 
@@ -58,7 +78,7 @@ function handleEditButton(event) {
 
     for (let i = 0; i < recipe.ingredients.length; i++) {
         myList += `<li><input type="text" id="ing${i}" value="${recipe.ingredients[i].text}"></li>`;
-        
+
     };
     myList += `</ul>`;
     let editForm = `
@@ -90,24 +110,24 @@ function handleEditButton(event) {
     `
 
     $('#' + event.target.id).replaceWith(editForm);
-    if( $(".submit").on("click", handleEditFormSubmit));
+    if ($(".submit").on("click", handleEditFormSubmit));
 
 }
 
 
-function handleEditFormSubmit(event){
-    
+function handleEditFormSubmit(event) {
+
     event.preventDefault();
     console.log('submit pressed');
     let copyNewIng = [];
     let curr = event.target.id;
     let recipe = dataArr.find(r => r.id = curr)
     console.log(recipe)
-    
+
 
     recipe.label = $('.nameField').val();
-    for(let i = 0; i < recipe.ingredients.length; i++){
-        recipe.ingredients[i].text = $('#ing'+ i).val();
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+        recipe.ingredients[i].text = $('#ing' + i).val();
         console.log(recipe.ingredients[i]);
         copyNewIng.push(recipe.ingredients[i]);
     }
@@ -117,44 +137,44 @@ function handleEditFormSubmit(event){
 
     let newCard = renderRecipeCard(recipe);
     $('.editForm').replaceWith(newCard)
-    
-   // axios requests to edit backend
+
+    // axios requests to edit backend
     let token = localStorage.getItem('jwt');
     //let curr = event.target.id;
-    //let recipe = dataArr.find(r => r.label = curr)
+    //let recipe = dataArr.find(r => r.label = curr)
     try {
         const res = await axios({
             method: 'delete',
             url: "http://localhost:3003/user/recipes/" + recipe.label,
-            headers: {Authorization: `Bearer ${token}`},
+            headers: { Authorization: `Bearer ${token}` },
             //"type": "merge",
         });
-      } catch (error) {
-          alert(error);
-      }
+    } catch (error) {
+        alert(error);
+    }
     try {
         const res = await axios({
             method: 'post',
             url: "http://localhost:3003/user/recipes/" + recipe.label.split(" ").join(""),
-            headers: {Authorization: `Bearer ${token}`},
+            headers: { Authorization: `Bearer ${token}` },
             "type": "merge",
-        'data': {
             'data': {
-              "uri": copyRecipe.uri,
-              "img": copyRecipe.image,
-              "label": copyRecipe.label,
-              "url": copyRecipe.url,
-              "cals": copyRecipe.calories,
-              "ingredients": copyNewIng,
-              "dietLabel": copyRecipe.dietLabels,
-              "healthLabel": copyRecipe.healthLabels,
+                'data': {
+                    "uri": copyRecipe.uri,
+                    "img": copyRecipe.image,
+                    "label": copyRecipe.label,
+                    "url": copyRecipe.url,
+                    "cals": copyRecipe.calories,
+                    "ingredients": copyNewIng,
+                    "dietLabel": copyRecipe.dietLabels,
+                    "healthLabel": copyRecipe.healthLabels,
+                }
             }
-        }
         });
-        
-      } catch (error) {
-          alert(error);
-      }
+
+    } catch (error) {
+        alert(error);
+    }
 
 }
 
@@ -167,22 +187,36 @@ async function handleDeleteButton(event) {
 
     let token = localStorage.getItem('jwt');
     let curr = event.target.id;
-    let recipe = dataArr.find(r => r.label = curr)
+    let recipe = dataArr.find(r => r.label = curr)
     try {
         const res = await axios({
             method: 'delete',
             url: "https://mealaday.herokuapp.com/user/recipes/" + recipe.label,
-            headers: {Authorization: `Bearer ${token}`},
+            headers: { Authorization: `Bearer ${token}` },
             //"type": "merge",
         });
-      } catch (error) {
-          alert(error);
-      }
+    } catch (error) {
+        alert(error);
+    }
 
 }
 
+async function getProfileInfo() {
+    let token = localStorage.getItem('jwt');
+    try {
+        const prof = await axios({
+            method: 'get',
+            url: "https://mealaday.herokuapp.com/account",
+            headers: { Authorization: `Bearer ${token}` },
+            "type": "merge",
+        }); 
+        console.log(prof);
+    } catch (error){
+        alert(error)
+    }
+}
+
 async function getRecipes() {
-    
     let token = localStorage.getItem('jwt');
     try {
         const recipe = await axios({
