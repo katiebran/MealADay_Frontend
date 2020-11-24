@@ -171,7 +171,7 @@ async function handleDeleteButton(event) {
     try {
         const res = await axios({
             method: 'delete',
-            url: "http://localhost:3003/user/recipes/" + recipe.label,
+            url: "https://mealaday.herokuapp.com/user/recipes/" + recipe.label,
             headers: {Authorization: `Bearer ${token}`},
             //"type": "merge",
         });
@@ -187,7 +187,7 @@ async function getRecipes() {
     try {
         const recipe = await axios({
             method: 'get',
-            url: "http://localhost:3003/user/recipes",
+            url: "https://mealaday.herokuapp.com/user/recipes",
             headers: { Authorization: `Bearer ${token}` },
             //"type": "merge",
         });

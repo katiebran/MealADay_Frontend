@@ -7,7 +7,7 @@ async function handleLogIn() {
     try {
         const res = await axios({
             method: "post",
-            url: 'http://localhost:3003/account/login',
+            url: 'https://mealaday.herokuapp.com/login',
             data: {
                 name: username,
                 pass: password,
@@ -17,7 +17,7 @@ async function handleLogIn() {
         localStorage.setItem('jwt', token);
         console.log(token);
         localStorage.setItem('name', username);
-        window.location.replace('http://localhost:3000/profile.html'); 
+        window.location.replace('https://katiebran.github.io/MealADay_Frontend/profile.html'); 
         return true;
     } catch (error) {
         alert(error);
@@ -33,13 +33,13 @@ async function createUser() {
     try {
         const res = await axios({
             method: "post",
-            url: 'http://localhost:3003/account/create',
+            url: 'https://mealaday.herokuapp.com/account/create',
             data: {
                 name: username,
                 pass: password,
             }
         })
-        window.location.replace('http://localhost:3000/logIn.html');
+        window.location.replace('https://katiebran.github.io/MealADay_Frontend/logIn.html');
     } catch (error){
         alert(error + ": An account with this name already exists!");
     }
@@ -48,5 +48,5 @@ async function createUser() {
 function logOut() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('name');
-    window.location.replace('http://localhost:3000/index.html');
+    window.location.replace('https://katiebran.github.io/MealADay_Frontend/index.html');
 }

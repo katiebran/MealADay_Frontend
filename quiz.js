@@ -290,7 +290,7 @@ async function addRecipe(event){
     try {
         const res = await axios({
             method: 'post',
-            url: "http://localhost:3003/user/recipes/" + id,
+            url: "https://mealaday.herokuapp.com/user/recipes/" + id,
             headers: {Authorization: `Bearer ${token}`},
             "type": "merge",
             'data': {
@@ -337,7 +337,7 @@ async function addUser(){
   try {
     const res = await axios({
         method: 'post',
-        url: "http://localhost:3003/user/recipes/" + id,
+        url: "https://mealaday.herokuapp.com/user/recipes/" + id,
         headers: {Authorization: `Bearer ${token}`},
         "type": "merge",
         'data': {
