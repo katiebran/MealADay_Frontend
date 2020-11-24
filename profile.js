@@ -191,7 +191,7 @@ async function getRecipes() {
             headers: { Authorization: `Bearer ${token}` },
             "type": "merge",
         });
-        console.log(recipe.data);
+        console.log(recipe);
         // console.log(recipe.data.result);
         dataArr = Object.values(recipe.data.result);
         console.log(dataArr);

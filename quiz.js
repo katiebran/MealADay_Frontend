@@ -355,6 +355,7 @@ async function addUser(){
             }
         }
     });
+    console.log(res);
   } catch (error) {
       alert(error);
   }
