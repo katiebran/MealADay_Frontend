@@ -1,7 +1,7 @@
 let dataArr;
 
 function renderRecipeCard(recipe) {
-    // console.log(recipe);
+    console.log(recipe);
 
     let list = `<ul>`;
 
@@ -10,7 +10,7 @@ function renderRecipeCard(recipe) {
         // console.log(list)
     };
     list += `</ul>`;
-    console.log("this is teh recipe label" + recipe.label.split(" ").join(""));
+    //console.log("this is teh recipe label" + recipe.label.split(" ").join(""));
     let card = `
                     <div class="box" id="${recipe.label.split(" ").join("")}">
     

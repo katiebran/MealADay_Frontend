@@ -167,9 +167,11 @@ async function findFinalRecipe(foodObjArr){
   let randomNumber2 = Math.floor(Math.random() * Math.floor(finalFoodType.length));  // gives a random number to choose from the recipes
 
   finalRecipe = finalFoodType[randomNumber2]; 
+
+  console.log(finalRecipe);
   
   allRecipes.push(finalRecipe);
-  console.log(allRecipes);
+  //console.log(allRecipes);
   
 }
 
