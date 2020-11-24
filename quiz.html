@@ -23,6 +23,7 @@
 
 <body>
 
+  <!-- MAKE SURE TO IMPLEMENT JS AT THE BOTTOM IN SCRIPT TAG -->
   <nav class="navbar is-transparent is-fixed-top">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
@@ -57,15 +58,25 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
+            <!-- if logged in -->
             <p class="control">
               <a class="bd-tw-button button" target="_blank"
                 href="./logOut.html">
-                
+                <span>
+                  Log Out
+                </span>
+              </a>
+            </p>
+
+            <!-- if logged out -->
+            <!-- <p class="control">
+              <a class="bd-tw-button button" target="_blank"
+                href="./logOut.html">
                 <span>
                   Login
                 </span>
               </a>
-            </p>
+            </p> -->
             <!-- <p class="control">
               <a class="button is-primary"
                 href="https://github.com/jgthms/bulma/releases/download/0.9.1/bulma-0.9.1.zip">
