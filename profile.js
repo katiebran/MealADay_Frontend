@@ -62,7 +62,7 @@ function renderProfileCard(prof){
     </div>
   </div>`
 
-  $('.proofRoot').append(profCard);
+  $('.profRoot').append(profCard);
 }
 
 function handleEditButton(event) {
