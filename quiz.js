@@ -261,7 +261,7 @@ export async function createRecipe(){
                               </div>
                               <footer class="card-footer">
                                   <p class="card-footer-item">
-                                  <a href="#"><button class="button profileButton" id="profileButton">Go to My Recipe</button></a>
+                                  <a href="profile.html"><button class="button profileButton" id="profileButton">Go to My Recipe</button></a>
                                   </p>
                               </footer>
                           </div>
