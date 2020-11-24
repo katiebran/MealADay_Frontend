@@ -44,8 +44,8 @@ function renderRecipeCard(recipe) {
 
 }
 
-function renderProfileCard(prof){
-    console.log(prof)
+function renderProfileCard(){
+
     let profCard = ` <div class="container m-4">
 
     <div class="card m-2">
