@@ -203,20 +203,20 @@ async function handleDeleteButton(event) {
 
 async function getProfileInfo() {
     let token = localStorage.getItem('jwt');
-    // try {
-    //     const prof = await axios({
-    //         method: 'get',
-    //         url: "https://mealaday.herokuapp.com/account",
-    //         headers: { Authorization: `Bearer ${token}` },
-    //         "type": "merge",
-    //     }); 
-    //     console.log(prof);
-    //     renderProfileCard(prof)
-    // } catch (error){
-    //     alert(error)
-    // }
-    let prof = localStorage.getItem('name')
-    console.log(prof)
+    try {
+        const prof = await axios({
+            method: 'get',
+            url: "https://mealaday.herokuapp.com/account",
+            headers: { Authorization: `Bearer ${token}` },
+            "type": "merge",
+        }); 
+        console.log(prof);
+        // renderProfileCard(prof)
+    } catch (error){
+        alert(error)
+    }
+    // let prof = localStorage.getItem('name')
+    // console.log(prof)
 }
 
 async function getRecipes() {
@@ -249,7 +249,8 @@ async function getRecipes() {
 
 $(function () {
     getRecipes();
-    renderProfileCard()
+    getProfileInfo();
+    // renderProfileCard()
     // $(document).on('click', '.edit', function () {
     //     console.log('edit')
     // });
