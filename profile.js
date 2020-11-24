@@ -247,6 +247,7 @@ async function getRecipes() {
 
 $(function () {
     getRecipes();
+    getProfileInfo()
     // $(document).on('click', '.edit', function () {
     //     console.log('edit')
     // });
