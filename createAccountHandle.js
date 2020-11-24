@@ -17,7 +17,7 @@ async function handleLogIn() {
         localStorage.setItem('jwt', token);
         console.log(token);
         localStorage.setItem('name', username);
-        window.location.replace('https://katiebran.github.io/MealADay_Frontend/profile.html'); 
+        window.location.replace('profile.html'); 
         return true;
     } catch (error) {
         alert(error);
@@ -48,5 +48,5 @@ async function createUser() {
 function logOut() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('name');
-    window.location.replace('https://katiebran.github.io/MealADay_Frontend/index.html');
+    window.location.replace('index.html');
 }
