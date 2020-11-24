@@ -39,7 +39,7 @@ async function createUser() {
                 pass: password,
             }
         })
-        window.location.replace('https://katiebran.github.io/MealADay_Frontend/logIn.html');
+        window.location.replace('logIn.html');
     } catch (error){
         alert(error + ": An account with this name already exists!");
     }
