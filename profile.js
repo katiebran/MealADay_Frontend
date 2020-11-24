@@ -211,6 +211,7 @@ async function getProfileInfo() {
             "type": "merge",
         }); 
         console.log(prof);
+        renderProfileCard(prof)
     } catch (error){
         alert(error)
     }
