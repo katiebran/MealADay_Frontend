@@ -26,15 +26,20 @@ async function handleLogIn() {
 }
 
 async function createUser() {
+    const first = document.getElementById("firstName").value;
+    const last = document.getElementById("lastName").value;
+    const favFood = document.getElementById("favFood").value;
     const username = document.getElementById("username").value;
-    console.log(username);
     const password = document.getElementById("password").value;
-    console.log(username);
+   
     try {
         const res = await axios({
             method: "post",
             url: 'https://mealaday.herokuapp.com/account/create',
             data: {
+                first: first,
+                last: last,
+                favFood: favFood,
                 name: username,
                 pass: password,
             }

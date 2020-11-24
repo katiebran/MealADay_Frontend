@@ -97,64 +97,64 @@ function handleEditButton(event) {
 
 function handleEditFormSubmit(event){
     
-    // event.preventDefault();
-    // console.log('submit pressed');
-    // let copyNewIng = [];
-    // let curr = event.target.id;
-    // let recipe = dataArr.find(r => r.id = curr)
-    // console.log(recipe)
+    event.preventDefault();
+    console.log('submit pressed');
+    let copyNewIng = [];
+    let curr = event.target.id;
+    let recipe = dataArr.find(r => r.id = curr)
+    console.log(recipe)
     
 
-    // recipe.label = $('.nameField').val();
-    // for(let i = 0; i < recipe.ingredients.length; i++){
-    //     recipe.ingredients[i].text = $('#ing'+ i).val();
-    //     console.log(recipe.ingredients[i]);
-    //     copyNewIng.push(recipe.ingredients[i]);
-    // }
-    // console.log(copyNewIng)
+    recipe.label = $('.nameField').val();
+    for(let i = 0; i < recipe.ingredients.length; i++){
+        recipe.ingredients[i].text = $('#ing'+ i).val();
+        console.log(recipe.ingredients[i]);
+        copyNewIng.push(recipe.ingredients[i]);
+    }
+    console.log(copyNewIng)
 
-    // let copyRecipe = recipe;
+    let copyRecipe = recipe;
 
-    // let newCard = renderRecipeCard(recipe);
-    // $('.editForm').replaceWith(newCard)
+    let newCard = renderRecipeCard(recipe);
+    $('.editForm').replaceWith(newCard)
     
-//    // axios requests to edit backend
-//     let token = localStorage.getItem('jwt');
-//     //let curr = event.target.id;
-//     //let recipe = dataArr.find(r => r.label = curr)
-//     try {
-//         const res = await axios({
-//             method: 'delete',
-//             url: "http://localhost:3003/user/recipes/" + recipe.label,
-//             headers: {Authorization: `Bearer ${token}`},
-//             //"type": "merge",
-//         });
-//       } catch (error) {
-//           alert(error);
-//       }
-//     try {
-//         const res = await axios({
-//             method: 'post',
-//             url: "http://localhost:3003/user/recipes/" + recipe.label.split(" ").join(""),
-//             headers: {Authorization: `Bearer ${token}`},
-//             "type": "merge",
-//         'data': {
-//             'data': {
-//               "uri": copyRecipe.uri,
-//               "img": copyRecipe.image,
-//               "label": copyRecipe.label,
-//               "url": copyRecipe.url,
-//               "cals": copyRecipe.calories,
-//               "ingredients": copyNewIng,
-//               "dietLabel": copyRecipe.dietLabels,
-//               "healthLabel": copyRecipe.healthLabels,
-//             }
-//         }
-//         });
+   // axios requests to edit backend
+    let token = localStorage.getItem('jwt');
+    //let curr = event.target.id;
+    //let recipe = dataArr.find(r => r.label = curr)
+    try {
+        const res = await axios({
+            method: 'delete',
+            url: "http://localhost:3003/user/recipes/" + recipe.label,
+            headers: {Authorization: `Bearer ${token}`},
+            //"type": "merge",
+        });
+      } catch (error) {
+          alert(error);
+      }
+    try {
+        const res = await axios({
+            method: 'post',
+            url: "http://localhost:3003/user/recipes/" + recipe.label.split(" ").join(""),
+            headers: {Authorization: `Bearer ${token}`},
+            "type": "merge",
+        'data': {
+            'data': {
+              "uri": copyRecipe.uri,
+              "img": copyRecipe.image,
+              "label": copyRecipe.label,
+              "url": copyRecipe.url,
+              "cals": copyRecipe.calories,
+              "ingredients": copyNewIng,
+              "dietLabel": copyRecipe.dietLabels,
+              "healthLabel": copyRecipe.healthLabels,
+            }
+        }
+        });
         
-//       } catch (error) {
-//           alert(error);
-//       }
+      } catch (error) {
+          alert(error);
+      }
 
 }
 
