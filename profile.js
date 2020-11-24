@@ -52,11 +52,11 @@ function renderProfileCard(prof){
       <div class="profile-pic">
       </div>
       <div class="card-content">
-        <p class="title is-4">${prof.first} ${prof.last}</p>
-        <p class="subtitle is-6">${prof.name}</p>
+        <p class="title is-4">${localStorage.getItem('first')} ${localStorage.getItem('last')}</p>
+        <p class="subtitle is-6">${localStorage.getItem('name')}</p>
       </div>
       <div class="content p-4">
-        <p><strong>Favorite Food: </strong>${prof.favFood} </p>
+        <p><strong>Favorite Food: </strong>${localStorage.getItem('favFood')} </p>
         <button class="button yellow_button">Edit Profile</button>
       </div>
     </div>
