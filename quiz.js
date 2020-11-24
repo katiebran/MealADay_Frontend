@@ -353,6 +353,7 @@ async function addUser(){
               "ingredients": recipe.ingredients,
               "dietLabel": recipe.dietLabels,
               "healthLabel": recipe.healthLabels,
+              "isLiked": "false"
             }
         }
     });
