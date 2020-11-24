@@ -203,18 +203,20 @@ async function handleDeleteButton(event) {
 
 async function getProfileInfo() {
     let token = localStorage.getItem('jwt');
-    try {
-        const prof = await axios({
-            method: 'get',
-            url: "https://mealaday.herokuapp.com/account/login",
-            headers: { Authorization: `Bearer ${token}` },
-            "type": "merge",
-        }); 
-        console.log(prof);
-        renderProfileCard(prof)
-    } catch (error){
-        alert(error)
-    }
+    // try {
+    //     const prof = await axios({
+    //         method: 'get',
+    //         url: "https://mealaday.herokuapp.com/account",
+    //         headers: { Authorization: `Bearer ${token}` },
+    //         "type": "merge",
+    //     }); 
+    //     console.log(prof);
+    //     renderProfileCard(prof)
+    // } catch (error){
+    //     alert(error)
+    // }
+    let prof = localStorage.getItem('name')
+    console.log(prof)
 }
 
 async function getRecipes() {
