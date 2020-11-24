@@ -45,6 +45,7 @@ async function createUser() {
             }
         })
         window.location.replace('logIn.html');
+        console.log(res)
     } catch (error){
         alert(error + ": An account with this name already exists!");
     }
